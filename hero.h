@@ -1,4 +1,4 @@
-Class
+Class Hero
 {
  int HP_level;
  int Max_Hp;
