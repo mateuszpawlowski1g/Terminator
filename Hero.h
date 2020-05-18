@@ -7,8 +7,8 @@ Class Hero
  double pos_y;
  double DMG;
  double atack_ratio;
+ double velocity;
  public:
- void move();
  virtual void atack();
  virtual void get_hit();
 }
