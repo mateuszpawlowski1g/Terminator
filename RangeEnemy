@@ -1,0 +1,7 @@
+Class RangeEnemy:public Hero
+{
+  public:
+  void atack();//strzelanie+celowanie
+  void get_hit();
+  
+}
