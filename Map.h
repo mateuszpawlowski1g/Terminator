@@ -4,4 +4,6 @@ Class Map
  double y_pos;
  double heigh;
  double width;
+ public:
+ Map();
 }
