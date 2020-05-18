@@ -9,6 +9,7 @@ Class Hero
  double atack_ratio;
  double velocity;
  public:
+ Hero();
  virtual void atack();
  virtual void get_hit();
 }
