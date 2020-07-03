@@ -14,6 +14,6 @@ Sposób obsługi:Gracz porusza postacią za pomocą klawiszy "WSAD"(postać jak 
 W tej grze gracz po zderzeniu ze ścianą nie będzie się odbijał jedynie podczas ataku ze strony przeciwnika atakującego z bliska będzie odpychany. W przypadku przeciwników dystansowych po trafieniu gracz traci część punktów zdrowia. Strzały gracza zmniejszają zdrowie przeciwników.
 
 Plansze zapisane za pomocą wektorów.
-
+![alt text](http://)
 
 
