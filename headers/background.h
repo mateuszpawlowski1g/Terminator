@@ -5,7 +5,7 @@
 class Background : public Map
 {
 public:
-  Background(sf::Texture text);
+  Background();
   void fill();//wypełnienie calej mapy
 };
 

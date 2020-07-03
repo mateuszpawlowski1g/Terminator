@@ -5,7 +5,7 @@
 class Wall : public Map
 {
 public:
-    Wall(sf::Texture text);
+    Wall();
 };
 
 #endif // WALL_H

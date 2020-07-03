@@ -6,7 +6,6 @@
 #include <iostream>
 class Hero:public sf::Sprite
 {
-
  int HP_level;
  int Max_Hp;
  double speed;
@@ -17,7 +16,7 @@ class Hero:public sf::Sprite
  double velocity;
  public:
  Hero();
-
-
+ virtual void atack();
+ virtual void get_hit();
 };
 #endif // HERO_H

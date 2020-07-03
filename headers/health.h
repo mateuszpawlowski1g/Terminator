@@ -5,7 +5,7 @@
 class Health : public Map
 {
 public:
-  Health(sf::Texture text);
+  Health();
   void health_lv();
 };
 

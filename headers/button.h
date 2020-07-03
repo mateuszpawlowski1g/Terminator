@@ -6,8 +6,8 @@ class Button : public Map
 {
     double HP;
       public:
-      Button(sf::Texture text);
-      bool get_hit(Button&but,sf::RectangleShape&rect);
+      Button();
+      void get_hit();
 };
 
 #endif // BUTTON_H
