@@ -15,5 +15,5 @@ W tej grze gracz po zderzeniu ze ścianą nie będzie się odbijał jedynie podc
 
 Plansze zapisane za pomocą wektorów.
 ![alt text](https://github.com/mateuszpawlowski1g/Terminator/blob/master/plansza/Plansza_01.png)
-
+![alt text](https://github.com/mateuszpawlowski1g/Terminator/blob/master/plansza/Bez%C2%A0tytu%C5%82u1.png)
 
