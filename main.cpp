@@ -58,7 +58,7 @@ int main()
         sf::Texture tekstura;
         textury_ran2.emplace_back(tekstura);
     }
-    for(int i=0;i<10;i++){
+    for(int i=0;i<3;i++){
 
         MeleeEnemy mel(textury_mele[i]);
 
@@ -86,7 +86,7 @@ int main()
         mele_wrogowie2.emplace_back(mel);
 
     }
-    for(int i=0;i<10;i++){
+    for(int i=0;i<3;i++){
 
         RangeEnemy ran(textury_ran[i]);
 
@@ -211,37 +211,51 @@ int main()
             //--------------------------------------------if()
 
             int j=0;
+
             for(auto&element:mele_wrogowie){
+                bool x=true;
                 for(auto&el:strzaly_gracza){
 
                     sf::FloatRect ob=el.getGlobalBounds();
                     if(ob.intersects(element.getGlobalBounds())){
                         mele_wrogowie.erase(mele_wrogowie.begin()+j);
+                        x=false;
                     }
+
                 }
-                j++;
+                if(x){
+                j++;// dzieki temu żaden obiekt nie jest pomijany jesli obiekt zostanie usuniety to kolejny element wskoczy na jego miejsce
+                }
             }
             int g=0;
             for(auto&element:ran_wrogowie){
+                bool x=true;
                 for(auto&el:strzaly_gracza){
 
                     sf::FloatRect ob=el.getGlobalBounds();
                     if(ob.intersects(element.getGlobalBounds())){
                         ran_wrogowie.erase(ran_wrogowie.begin()+g);
+                        x=false;
                     }
                 }
+                if(x){
                 g++;
+                }
             }
             int delta=0;
             for(auto&element:walls){
+                bool x=true;
                 for(auto&el:strzaly_gracza){
 
                     sf::FloatRect ob=el.getGlobalBounds();
                     if(ob.intersects(element.getGlobalBounds())){
                         strzaly_gracza.erase(strzaly_gracza.begin()+delta);
+                        x=false;
                     }
                 }
+                if(x){
                 delta++;
+                }
             }
             for(auto&element:walls){
                 for(auto&el:mele_wrogowie){
@@ -255,14 +269,18 @@ int main()
             }
             int gamma=0;
             for(auto&element:walls){
+                bool x=true;
                 for(auto&el:obiekty){
 
                     sf::FloatRect ob=el.getGlobalBounds();
                     if(ob.intersects(element.getGlobalBounds())){
                         obiekty.erase(obiekty.begin()+gamma);
+                         x=false;
                     }
                 }
+                if(x){
                 gamma++;
+                }
             }
             for(auto&el:obiekty){
                 el.strzal(el,elapsed,50,0,0);
@@ -280,12 +298,16 @@ int main()
             int k=0;
             window.draw(bck);
             for(auto&el:obiekty){
+                 bool x=true;
                 sf::FloatRect ob=el.getGlobalBounds();
                 if(ob.intersects(term.getGlobalBounds())){
                     obiekty.erase(obiekty.begin()+k);
+                    x=false;
 
                 }
+                if(x){
                 k++;
+                }
                 term.get_hit(term,el);
                 window.draw(el);
             }
@@ -329,47 +351,73 @@ int main()
             sf::Time elapsed = clock.restart();
             int j=0;
             for(auto&element:mele_wrogowie2){
+                 bool x=true;
                 for(auto&el:strzaly_gracza2){
 
                     sf::FloatRect ob=el.getGlobalBounds();
                     if(ob.intersects(element.getGlobalBounds())){
                         mele_wrogowie2.erase(mele_wrogowie2.begin()+j);
+                        x=false;
                     }
                 }
+                if(x){
                 j++;
+                }
             }
             int g=0;
             for(auto&element:ran_wrogowie2){
+                bool x=true;
                 for(auto&el:strzaly_gracza2){
 
                     sf::FloatRect ob=el.getGlobalBounds();
                     if(ob.intersects(element.getGlobalBounds())){
                         ran_wrogowie2.erase(ran_wrogowie2.begin()+g);
+                        x=false;
                     }
                 }
+                if(x){
                 g++;
+                }
             }
             int delta=0;
             for(auto&element:walls2){
+                bool x=true;
                 for(auto&el:strzaly_gracza2){
 
                     sf::FloatRect ob=el.getGlobalBounds();
                     if(ob.intersects(element.getGlobalBounds())){
                         strzaly_gracza2.erase(strzaly_gracza2.begin()+delta);
+                        x=false;
                     }
                 }
+                if(x){
                 delta++;
+                }
+            }
+            for(auto&element:walls2){
+                for(auto&el:mele_wrogowie2){
+
+                    sf::FloatRect ob=el.getGlobalBounds();
+                    if(ob.intersects(element.getGlobalBounds())){
+                      el.sciana(el,element);
+                    }
+                }
+
             }
             int gamma=0;
             for(auto&element:walls2){
+                bool x=true;
                 for(auto&el:obiekty2){
 
                     sf::FloatRect ob=el.getGlobalBounds();
                     if(ob.intersects(element.getGlobalBounds())){
                         obiekty2.erase(obiekty2.begin()+gamma);
+                         x=false;
                     }
                 }
+                if(x){
                 gamma++;
+                }
             }
             for(auto&el:obiekty2){
                 el.strzal(el,elapsed,50,0,0);
@@ -381,18 +429,23 @@ int main()
             for(auto&el:mele_wrogowie2){
                 el.auto_pilot(el,term,elapsed);
                 term.get_hit_mele(term,el);
+                el.reset(el);
             }
             sf::Vector2f mouse_position = window.mapPixelToCoords(sf::Mouse::getPosition(window));
             term.ruch(term,elapsed,mouse_position.x,mouse_position.y);
             int k=0;
             window.draw(bck1);
             for(auto&el:obiekty2){
+                bool x=true;
                 sf::FloatRect ob=el.getGlobalBounds();
                 if(ob.intersects(term.getGlobalBounds())){
                     obiekty2.erase(obiekty2.begin()+k);
+                     x=false;
 
                 }
+                if(x){
                 k++;
+                }
                 term.get_hit(term,el);
                 window.draw(el);
             }

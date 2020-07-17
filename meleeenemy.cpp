@@ -55,5 +55,8 @@ void MeleeEnemy::sciana(MeleeEnemy&mel,sf::RectangleShape&rect){
     if((mele.left-15)<(sciana.left+sciana.width)&&(mele.left+5)>(sciana.left+sciana.width)){
         stop=4;
     }
-    std::cout<<stop<<std::endl;
+    //std::cout<<stop<<std::endl;
+}
+void MeleeEnemy::reset(MeleeEnemy&mel){
+    stop=0;
 }

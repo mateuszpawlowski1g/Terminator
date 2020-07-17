@@ -12,6 +12,7 @@ public:
  void get_hit();
  void auto_pilot(MeleeEnemy &mel,sf::Sprite sp,const sf::Time &elapsed);
  void sciana(MeleeEnemy&mel,sf::RectangleShape&rect);
+ void reset(MeleeEnemy&mel);
 };
 
 #endif // MELEEENEMY_H
